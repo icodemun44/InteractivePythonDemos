@@ -1,3 +1,6 @@
+# INTERACTIVE PYTHON DEMOS
+
+
 import time
 import random
 
@@ -139,9 +142,10 @@ def random_password_generator():
   smallAlphabet = "abcdefghijklmnopqrstuvwxyz"
   capitalAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
   numColl = "1234567890"
-  specialChar="!@#$%^&*-.:"
+  specialChar="!@#$%&*-."
   characters = smallAlphabet + capitalAlphabet + numColl + specialChar
-  password = [random.choice(smallAlphabet), random.choice(capitalAlphabet), random.choice(numColl), random.choice(specialChar)]
+#   password = [random.choice(smallAlphabet), random.choice(capitalAlphabet), random.choice(numColl), random.choice(specialChar)]
+  password = [smallAlphabet[random.randint(0, len(smallAlphabet)-1)],capitalAlphabet[random.randint(0, len(capitalAlphabet)-1)], numColl[random.randint(0, len(numColl)-1)], specialChar[random.randint(0, len(specialChar)-1)]]
   passLen = int(input("Please enter the length for your password(must be more than or equal to 8): "))
   if (passLen<8):
         print("The length of password must be equal or greater than 8")
@@ -238,6 +242,7 @@ def temperature_converter():
         print(f"{"2":<3} | {"Fahrenheit to Celsius Conversion":<60} |")
         print(f"{"3":<3} | {"Celsius to Kelvin Conversion":<60} |")
         print(f"{"4":<3} | {"Kelvin to Celsius Conversion":<60} |")
+        print(f"{"5":<3} | {"To Exit":<60} |")
         print("--------------------------------------------------------------------")
         userChoice = str(input(f"{" ":<3} | Enter your choice: "))
         isInput = False
@@ -246,34 +251,38 @@ def temperature_converter():
             match userChoice:
                 case "1":
                     animate_loading(["Loading Your Choice", "Loading Completed"])
-                    userInput = int(input("Input the temperature value in Celsius: "))
+                    userInput = float(input("Input the temperature value in Celsius: "))
                     print(f"{userInput} Celsius to Fahrenheit: {celsius_to_fahrenheit(userInput)}")
                     isInput = True
-                    break
+                    
                 case "2":
                     animate_loading(["Loading Your Choice", "Loading Completed"])
-                    userInput = int(input("Input the temperature value in Fahrenheit: "))
+                    userInput = float(input("Input the temperature value in Fahrenheit: "))
                     print(f"{userInput} Fahrenheit to Celsius: {fahrenheit_to_celsius(userInput)}")
                     isInput = True
-                    break
+                    
                 case "3":
                     animate_loading(["Loading Your Choice", "Loading Completed"])
-                    userInput = int(input("Input the temperature value in Celsius: "))
+                    userInput = float(input("Input the temperature value in Celsius: "))
                     print(f"{userInput} Celsius to Kelvin: {celsius_to_kelvin(userInput)}")
                     isInput = True
-                    break
+                    
                 case "4":
                     animate_loading(["Loading Your Choice", "Loading Completed"])
-                    userInput = int(input("Input the temperature value in Celsius: "))
+                    userInput = float(input("Input the temperature value in Celsius: "))
                     print(f"{userInput} Kelvin to Celsius: {kelvin_to_celsius(userInput)}") 
                     isInput = True
+                    
+                case "5":
+                    animate_loading(["Exiting program", "Program Exited"])
                     break
+                    
                 case _ :
                     print("\n"*100)
                     print("Invalid Input! Please try again.")
                     time.sleep(2)
                     print("\n"*100)
-            while isInput == True:
+            while True:
                 exit = input("Enter e to exit if you're done reading: ")
                 if exit.lower() == "e":
                     break
@@ -351,6 +360,7 @@ def math_test():
                         if answer == result:
                             print("Congrats! Thats the right answer.")
                             time.sleep(3)
+                            break
                         else:
                             if answer > result:
                                 if answer - result <= 5:
