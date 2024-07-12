@@ -100,6 +100,7 @@ def number_guessor():
             tempchance = chance
             guessnum = random.randint(low, high)
             print("\n"*400)
+            print(f"Guess the number between {low} and {high} within {chance} attempts")
             while tempchance != 0:
                 try:
                     guess = int(input("Enter your guess: "))
@@ -131,6 +132,9 @@ def number_guessor():
                         break
                 except ValueError:
                     print("Invalid Input! Please enter a number.")
+            if(tempchance==0 and guess!=guessnum):
+                print(f"You have run out of chances!\nThe answer is {guessnum}\nBetter luck next time")
+            time.sleep(3)
             break
         except ValueError:
             print("Invalid Input. Please enter valid number")
