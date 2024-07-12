@@ -449,6 +449,7 @@ def math_test():
                         if answer == result:
                             print("Congrats! Thats the right answer.")
                             time.sleep(3)
+                            break
                         else:
                             print("Wrong Answer! Please try again.")
                             attempt +=1
@@ -462,6 +463,8 @@ def math_test():
                 break
             case _ :
                 print("Wrong Input!")
+        if attempt == 5:
+            print(f"The correct answer is {result}")
         while isInput:
             exit = input("Enter e to exit: ")
             if exit.lower() == "e":
