@@ -134,7 +134,7 @@ def number_guessor():
                     print("Invalid Input! Please enter a number.")
             if(tempchance==0 and guess!=guessnum):
                 print(f"You have run out of chances!\nThe answer is {guessnum}\nBetter luck next time")
-            time.sleep(3)
+            time.sleep(5)
             break
         except ValueError:
             print("Invalid Input. Please enter valid number")
@@ -152,7 +152,7 @@ def random_password_generator():
   password = [smallAlphabet[random.randint(0, len(smallAlphabet)-1)],capitalAlphabet[random.randint(0, len(capitalAlphabet)-1)], numColl[random.randint(0, len(numColl)-1)], specialChar[random.randint(0, len(specialChar)-1)]]
   passLen = int(input("Please enter the length for your password(must be more than or equal to 8): "))
   if (passLen<8):
-        print("The length of password must be equal or greater than 8")
+        print("The length of password should at least be 8")
         time.sleep(2)
       
   else:
